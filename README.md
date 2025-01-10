@@ -32,8 +32,9 @@ This project is a **Production Management System** designed for managing parts p
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/baykar-production-management.git
+   ```
 2. Navigate to the project directory:
    ```bash
    cd baykar-production-management
-
+   ```
 
