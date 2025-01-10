@@ -37,4 +37,15 @@ This project is a **Production Management System** designed for managing parts p
    ```bash
    cd baykar-production-management
    ```
-
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Install dependencies:
+   ```bash
+   Apply database migrations:
+   ```
+5. Run the development server:
+   ```bash
+   python manage.py runserver
+   ```
