@@ -26,7 +26,7 @@ This project is a **Production Management System** designed for managing parts p
 ### Prerequisites
 - Python 3.8+
 - PostgreSQL
-- Node.js (for frontend development, optional)
+- Html, Tailwind, Javascript (for frontend development, optional)
 
 ### Steps
 1. Clone the repository:
