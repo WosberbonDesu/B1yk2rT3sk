@@ -19,6 +19,7 @@ This project is a **Production Management System** designed for managing parts p
 - **Frontend**: HTML, Tailwind CSS, JavaScript (jQuery)
 - **Database**: PostgreSQL
 
+## Extras
 ### Project setup with Docker
 ✅ Implemented: The project can be set up and run using Docker, ensuring consistent development environments.
 
@@ -46,8 +47,6 @@ This project is a **Production Management System** designed for managing parts p
 ### Front-end libraries/frameworks (Bootstrap, Tailwind, JQuery, etc.)
 ✅ Implemented: Tailwind CSS and JQuery are used for styling and asynchronous requests in the front end.
 
-### API documentation (Swagger)
-❌ Not implemented: Swagger-based API documentation is integrated and accessible.
 ---
 
 ## Installation
