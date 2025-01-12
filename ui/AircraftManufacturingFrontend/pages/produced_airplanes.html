@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üretilen Uçaklar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-2xl font-bold">Üretilen Uçaklar</h1>
+    </header>
+
+    <main class="p-6">
+        <h2 class="text-xl font-semibold mb-4">Üretim Listesi</h2>
+        
+        <div id="loadingSpinner" class="hidden flex justify-center items-center my-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+
+        <div id="errorMessage" class="hidden bg-red-100 text-red-600 p-4 rounded-lg mb-4">
+            Üretilen uçaklar alınırken bir hata oluştu. Lütfen daha sonra tekrar deneyin.
+        </div>
+
+        <table id="airplanesTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">Uçak Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">En Son Takılan Parça</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Üretim Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/produced_airplanes.js"></script>
+</body>
+</html>

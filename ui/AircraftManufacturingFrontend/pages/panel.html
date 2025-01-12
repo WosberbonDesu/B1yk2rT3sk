@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montaj Takımı Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-2xl font-bold">Montaj Takımı Paneli</h1>
+    </header>
+    <main class="p-6">
+        <h2 class="text-xl font-semibold mb-4">Uçak Üret</h2>
+        <form id="produceAircraftForm" class="bg-white p-4 rounded-lg shadow-md mb-6">
+            <div class="mb-4">
+                <label for="aircraftSelect" class="block text-sm font-medium text-gray-700">Uçak Seçin</label>
+                <select id="aircraftSelect" class="border border-gray-300 rounded-md w-full p-2">
+                    <option value="1">TB2</option>
+                    <option value="2">TB3</option>
+                    <option value="3">AKINCI</option>
+                    <option value="4">KIZILELMA</option>
+                </select>
+            </div>
+            <button id="produceAircraftBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 mt-4">
+                Üretimi Başlat
+            </button>
+        </form>
+
+        <h2 class="text-xl font-semibold mb-4">Üretilen Uçaklar</h2>
+        <table id="producedAircraftsTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden mb-6">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">Uçak Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Kullanılan Parçalar</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Üretim Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2 class="text-xl font-semibold mb-4">Eksik Parçalar</h2>
+        <table id="missingPartsTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead>
+                <tr class="bg-red-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">Parça Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Eksik Miktar</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/assemble_panel.js"></script>
+</body>
+</html>

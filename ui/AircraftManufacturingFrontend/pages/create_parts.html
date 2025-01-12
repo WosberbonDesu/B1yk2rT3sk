@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-2xl font-bold">Parça Üretim Yönetimi</h1>
+    </header>
+    <main class="p-6">
+        <h2 class="text-xl font-semibold mb-4">Üretilen Parçalar</h2>
+        <table id="productionTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden mb-4">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">Parça Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Takım</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Miktar</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2 class="text-xl font-semibold mb-4">Yeni Parça Üret</h2>
+        <form id="productionForm" class="bg-white p-4 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="partSelect" class="block text-sm font-medium text-gray-700">Parça Seçin</label>
+<select id="partSelect" class="border border-gray-300 rounded-md w-full p-2">
+    <option value="1">TB2 Kanat</option>
+    <option value="2">TB2 Gövde</option>
+    <option value="3">TB2 Kuyruk</option>
+    <option value="4">TB2 Aviyonik</option>
+    <option value="5">TB3 Kanat</option>
+    <option value="6">TB3 Gövde</option>
+    <option value="7">TB3 Kuyruk</option>
+    <option value="8">TB3 Aviyonik</option>
+    <option value="9">AKINCI Kanat</option>
+    <option value="10">AKINCI Gövde</option>
+    <option value="11">AKINCI Kuyruk</option>
+    <option value="12">AKINCI Aviyonik</option>
+    <option value="13">KIZILELMA Kanat</option>
+    <option value="14">KIZILELMA Gövde</option>
+    <option value="15">KIZILELMA Kuyruk</option>
+    <option value="16">KIZILELMA Aviyonik</option>
+</select>
+            </div>
+            <div class="mb-4">
+                <label for="quantity" class="block text-sm font-medium text-gray-700">Miktar</label>
+                <input type="number" id="quantity" class="border border-gray-300 rounded-md w-full p-2" min="1" required>
+            </div>
+            <button id="producePartBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 mt-4">
+                Parça Üret
+            </button>
+        </form>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/produce_parts.js"></script>
+</body>
+</html>

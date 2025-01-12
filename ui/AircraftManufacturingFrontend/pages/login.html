@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personel Girişi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?technology,abstract') no-repeat fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100vh;
+        }
+
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.85); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px); 
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .glass:hover {
+            transform: scale(1.02); 
+        }
+
+        .login-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            color: #2563eb; 
+        }
+
+        input, button {
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+    <div class="glass w-96">
+        <h2 class="login-title text-center mb-4">Personel Girişi</h2>
+        <form id="loginForm">
+            <!-- Kullanıcı Adı -->
+            <div class="mb-4">
+                <label for="firstName" class="block text-sm font-medium text-gray-700">Ad</label>
+                <input type="text" id="firstName" placeholder="Adınızı Girin"
+                    class="border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required>
+            </div>
+            <div class="mb-4">
+                <label for="lastName" class="block text-sm font-medium text-gray-700">Şifre</label>
+                <input type="text" id="lastName" placeholder="Şifre  Girin"
+                    class="border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    required>
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
+                Giriş Yap
+            </button>
+        </form>
+    </div>
+    <footer>
+        © 2025 Hava Aracı Üretim Uygulaması | Tasarım: Berke
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+    $("#loginForm").submit(function (event) {
+        event.preventDefault(); 
+
+        const firstName = $("#firstName").val();
+        const lastName = $("#lastName").val();
+
+        $.ajax({
+            url: "http://127.0.0.1:8000/api/login/", 
+            type: "POST", 
+            contentType: "application/json", 
+            data: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName
+            }),
+            success: function (response) {
+                console.log("Başarılı Giriş:", response);
+                alert("Giriş Başarılı!");
+                const eid = response.employee_id;
+                const team = response.team;
+                localStorage.setItem('eid', eid);
+                 localStorage.setItem('team', team);
+                const redirectUrl = "assemble.html"
+                window.location.href = redirectUrl; 
+
+            },
+            error: function (xhr, status, error) {
+                console.error("Giriş Hatası:", xhr.responseText);
+                alert("Giriş Başarısız! Hata: " + xhr.responseText);
+            }
+        });
+    });
+});
+
+       /* const users = [
+            { username: "montaj", password: "1234", role: "montaj" },
+            { username: "yönetici", password: "admin", role: "yönetici" }
+        ];*/
+/*
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Rol Tabanlı Yönlendirme
+                if (user.role === "montaj") {
+                    window.location.href = "assemble.html";
+                } else if (user.role === "yönetici") {
+                    window.location.href = "admin.html";
+                }
+            } else {
+                alert("Geçersiz kullanıcı adı veya şifre!");
+            }
+        });*/
+    </script>
+</body>
+</html>

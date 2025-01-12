@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parça Yönetimi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-2xl font-bold">Parça Yönetimi</h1>
+    </header>
+    <main class="p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Parçalar</h2>
+            <button id="addPartBtn" class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700">
+                Yeni Parça Ekle
+            </button>
+        </div>
+
+        <table id="partsTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">ID</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Parça Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Takım</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Adet</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <div id="partModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-md w-96">
+            <h3 id="modalTitle" class="text-xl font-semibold mb-4">Yeni Parça Ekle</h3>
+            <form id="partForm">
+                <div class="mb-4">
+                    <label for="partName" class="block text-sm font-medium text-gray-700">Parça Adı</label>
+                    <input type="text" id="partName" class="border border-gray-300 rounded-md w-full p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="team" class="block text-sm font-medium text-gray-700">Takım</label>
+                    <select id="team" class="border border-gray-300 rounded-md w-full p-2" required>
+                        <option value="Kanat Takımı">Kanat Takımı</option>
+                        <option value="Gövde Takımı">Gövde Takımı</option>
+                        <option value="Kuyruk Takımı">Kuyruk Takımı</option>
+                        <option value="Aviyonik Takımı">Aviyonik Takımı</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="quantity" class="block text-sm font-medium text-gray-700">Adet</label>
+                    <input type="number" id="quantity" class="border border-gray-300 rounded-md w-full p-2" min="1" required>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 w-full">
+                    Kaydet
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/parts.js"></script>
+</body>
+</html>

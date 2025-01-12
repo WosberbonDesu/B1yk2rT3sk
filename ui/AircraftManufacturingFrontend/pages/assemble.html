@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-2xl font-bold">Panel</h1>
+    </header>
+    <div id="welcomeMessage">
+        <h1>Hoş Geldiniz, Ahmet Yılmaz <span id="userName"></span>!</h1>
+        <p>Takımınız: <span id="userTeam"></span></p>
+    </div>
+    <div id="teamList" class="team-container">
+      
+    </div>
+    <button id="viewProducedAirplanesBtn" class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 hidden">
+        Üretilen Uçaklar
+    </button>
+    <button id="viewMissingPartsBtn" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+        Eksik Parçalar Görüntüle
+    </button>
+    <button id="producePartsBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+        Parça Üret
+    </button>
+    <button id="producedaa" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+       Uçak üret
+    </button>
+<button id="viewTeamMembersBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+    Takım Arkadaşlarını Görüntüle
+</button>
+
+    
+    <main class="p-6">
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Personel ve Takım Bilgisi</h2>
+            <label for="personnelTeam" class="block text-sm font-medium text-gray-700">Takım Seç</label>
+            <select id="personnelTeam" class="border border-gray-300 rounded-md w-full p-2">
+                <option value="Kanat Takımı">Kanat Takımı</option>
+                <option value="Gövde Takımı">Gövde Takımı</option>
+                <option value="Kuyruk Takımı">Kuyruk Takımı</option>
+                <option value="Aviyonik Takımı">Aviyonik Takımı</option>
+                <option value="Montaj Takımı">Montaj Takımı</option>
+            </select>
+        </div>
+<h2 class="text-xl font-semibold mt-6">Uçak Görselleştirme</h2>
+<div class="relative w-96 h-64 mx-auto mt-6" id="dynamicAirplane">
+    <div class="absolute bg-gray-500 h-16 w-48 top-20 left-12 rounded-full flex items-center justify-center text-white font-bold" id="airplaneBody">
+        Gövde
+    </div>
+    <div class="absolute bg-gray-500 h-8 w-20 top-24 left-4 transform rotate-12 flex items-center justify-center text-white font-bold" id="leftWing">
+        Kanat
+    </div>
+    <div class="absolute bg-gray-500 h-8 w-20 top-24 right-4 transform -rotate-12 flex items-center justify-center text-white font-bold" id="rightWing">
+        Kanat
+    </div>
+    <div class="absolute bg-gray-500 h-12 w-10 top-8 left-36 rounded-sm flex items-center justify-center text-white font-bold" id="tail">
+        Kuyruk
+    </div>
+    <div class="absolute bg-gray-500 h-8 w-8 top-28 left-40 rounded-full flex items-center justify-center text-white font-bold" id="avionics">
+        Aviyonik
+    </div>
+</div>
+
+        <div class="mb-6">
+            <label for="airplaneSelect" class="block text-sm font-medium text-gray-700">Uçak Seç</label>
+            <select id="airplaneSelect" class="border border-gray-300 rounded-md w-full p-2">
+                <option value="TB2">TB2</option>
+                <option value="TB3">TB3</option>
+                <option value="AKINCI">AKINCI</option>
+                <option value="KIZILELMA">KIZILELMA</option>
+            </select>
+        </div>
+
+        <h2 class="text-xl font-semibold mb-4">Parça Yönetimi</h2>
+        <table id="partsTable" class="min-w-full bg-white rounded-lg shadow-md overflow-hidden mb-4">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="px-6 py-3 text-left text-sm font-medium">Parça Adı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Takım</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">Stok Miktarı</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <button id="addPartBtn" class="mb-6 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700">
+            Yeni Parça Ekle
+        </button>
+
+        <h2 class="text-xl font-semibold mb-4">Montaj İşlemi</h2>
+        <button id="assembleBtn" class="mb-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+            Montaj Yap
+        </button>
+
+        <h2 class="text-xl font-semibold mt-6">Üretilen Uçaklar</h2>
+        <div id="producedAirplanesContainer" class="grid gap-4 grid-cols-1 sm:grid-cols-3 mt-4">
+        </div>
+
+        <div id="warningMessage" class="mt-4 hidden bg-red-100 text-red-600 p-4 rounded-md">
+            Eksik parçalar var! Montaj yapılamaz.
+        </div>
+        <div id="successMessage" class="mt-4 hidden bg-green-100 text-green-600 p-4 rounded-md">
+            Uçak başarıyla monte edildi!
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../js/assemble.js"></script>
+    <script>
+        
+    </script>
+    <script>
+        console.log(localStorage.getItem('eid'));
+console.log(localStorage.getItem('team'));
+
+        document.getElementById("producePartsBtn").addEventListener("click", function () {
+            const eid = localStorage.getItem('eid');
+            const team = localStorage.getItem('team');
+            window.location.href = `create_parts.html?eid=${eid}&team=${team}`;
+        });
+    </script>
+    
+</body>
+
+</html>
+<style>
+    #welcomeMessage {
+        text-align: center;
+        margin-top: 50px;
+        font-family: Arial, sans-serif;
+    }
+    #welcomeMessage h1 {
+        font-size: 2em;
+        color: #4CAF50;
+    }
+    #welcomeMessage p {
+        font-size: 1.2em;
+        color: #333;
+    }
+    .team-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .team-box {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        transition: transform 0.3s;
+    }
+
+    .team-box:hover {
+        transform: scale(1.05);
+    }
+
+    .team-box.green {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+    }
+
+    .team-box.blue {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+</style>

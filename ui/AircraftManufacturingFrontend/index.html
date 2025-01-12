@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold text-center text-blue-600 mb-4">Giriş Yap</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Kullanıcı Adı</label>
+                <input type="text" id="username" class="border border-gray-300 rounded-md w-full p-2" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Şifre</label>
+                <input type="password" id="password" class="border border-gray-300 rounded-md w-full p-2" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                Giriş Yap
+            </button>
+        </form>
+    </div>
+    <script>
+        const users = [
+            { username: "montaj", password: "1234", role: "montaj" },
+            { username: "yönetici", password: "admin", role: "yönetici" }
+        ];
+
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                if (user.role === "montaj") {
+                    window.location.href = "pages/assemble.html";
+                } else if (user.role === "yönetici") {
+                    window.location.href = "pages/admin.html";
+                }
+            } else {
+                alert("Geçersiz kullanıcı adı veya şifre!");
+            }
+        });
+    </script>
+</body>
+</html>
