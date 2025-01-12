@@ -19,6 +19,35 @@ This project is a **Production Management System** designed for managing parts p
 - **Frontend**: HTML, Tailwind CSS, JavaScript (jQuery)
 - **Database**: PostgreSQL
 
+### Project setup with Docker
+✅ Implemented: The project can be set up and run using Docker, ensuring consistent development environments.
+
+### Well-prepared documentation and comments
+✅ Implemented: Comprehensive documentation is provided, including comments for better code understanding and a detailed README file.
+
+### Unit tests
+✅ implemented: Unit tests created in this project.
+
+### Using DataTables for listing pages
+❌ Not implemented: DataTables library is not used for list pages.
+
+### Server-side DataTables
+❌ Not implemented: Server-side integration with DataTables has not been applied.
+
+### Asynchronous operations in the front end (Ajax, fetch, etc.)
+✅ Implemented: Asynchronous operations are extensively used in the front end with Ajax requests.
+
+### Relational tables managed separately
+✅ Implemented: Relational tables are appropriately designed and managed in the database.
+
+### Use of additional Django libraries
+✅ Implemented: Extra Django libraries like drf-yasg (for Swagger documentation) are integrated.
+
+### Front-end libraries/frameworks (Bootstrap, Tailwind, JQuery, etc.)
+✅ Implemented: Tailwind CSS and JQuery are used for styling and asynchronous requests in the front end.
+
+### API documentation (Swagger)
+❌ Not implemented: Swagger-based API documentation is integrated and accessible.
 ---
 
 ## Installation
