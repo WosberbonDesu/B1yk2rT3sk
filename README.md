@@ -19,6 +19,34 @@ This project is a **Production Management System** designed for managing parts p
 - **Frontend**: HTML, Tailwind CSS, JavaScript (jQuery)
 - **Database**: PostgreSQL
 
+## Extras
+### Project setup with Docker
+✅ Implemented: The project can be set up and run using Docker, ensuring consistent development environments.
+
+### Well-prepared documentation and comments
+✅ Implemented: Comprehensive documentation is provided, including comments for better code understanding and a detailed README file.
+
+### Unit tests
+✅ implemented: Unit tests created in this project.
+
+### Using DataTables for listing pages
+❌ Not implemented: DataTables library is not used for list pages.
+
+### Server-side DataTables
+❌ Not implemented: Server-side integration with DataTables has not been applied.
+
+### Asynchronous operations in the front end (Ajax, fetch, etc.)
+✅ Implemented: Asynchronous operations are extensively used in the front end with Ajax requests.
+
+### Relational tables managed separately
+✅ Implemented: Relational tables are appropriately designed and managed in the database.
+
+### Use of additional Django libraries
+✅ Implemented: Extra Django libraries like drf-yasg (for Swagger documentation) are integrated.
+
+### Front-end libraries/frameworks (Bootstrap, Tailwind, JQuery, etc.)
+✅ Implemented: Tailwind CSS and JQuery are used for styling and asynchronous requests in the front end.
+
 ---
 
 ## Installation
@@ -53,45 +81,69 @@ This project is a **Production Management System** designed for managing parts p
 ## API Endpoints
 
 ### Authentication
-- **`POST /api/login/`**  
-  Authenticate employees and return a JWT token along with employee and team information.
+- **`POST /api/login/`** 
+Authenticate employees and return their employee ID, team information, and JWT token.
 
 ### Teams
 - **`GET /api/teams/`**  
-  Fetch a list of all teams.  
+Fetch a list of all teams.
 - **`POST /api/teams/`**  
-  Create a new team.  
-- **`GET /api/teams/<int:pk>/`**  
-  Retrieve a specific team's details.  
-- **`GET /api/teams/<int:team_id>/parts/`**  
-  List parts responsible for a specific team.  
+Create a new team.
+- **`GET /api/teams/<int:pk>/`** 
+Retrieve detailed information about a specific team.
+- **`GET /api/teams/<int:team_id>/parts/`**
+List parts that a specific team is responsible for.
 
 ### Employees
-- **`GET /api/employees/`**  
-  List all employees.  
-- **`POST /api/employees/`**  
-  Add a new employee.  
-- **`GET /api/employees/<int:pk>/`**  
-  Retrieve a specific employee's details.  
-- **`GET /employee-parts/<int:employee_id>/`**  
-  List all parts and aircraft assigned to the employee's team.  
+- **`GET /api/employees/`**
+Fetch a list of all employees.
+- **`POST /api/employees/`**
+Add a new employee.
+- **`GET /api/employees/<int:pk>/`**
+Retrieve detailed information about a specific employee.
+- **`GET /employee-parts/<int:employee_id>/`**
+List parts and aircraft assigned to the employee's team.
 
 ### Production
-- **`GET /api/production/`**  
-  List all production records.  
-- **`POST /api/production/`**  
-  Add a new production record for a specific team and part.  
+- **`GET /api/production/`**
+Fetch all production records.
+- **`POST /api/production/`**
+Add a production record for a specific team and part.
 
 ### Assembly
-- **`GET /api/assembly/`**  
-  List all assembly operations.  
-- **`POST /api/assembly/`**  
-  Record a new assembly operation.  
+- **`GET /api/assembly/`**
+List all assembly operations.
+- **`POST /api/assembly/`**
+Record a new assembly operation for a specific part and aircraft.
 
 ### Inventory Alerts
-- **`GET /api/inventory-alerts/`**  
-  List all missing parts and their quantities.  
+- **`GET /api/inventory-alerts/`**
+Fetch a list of inventory alerts, including missing parts and their quantities.
 
-### Parts Recycling
-- **`POST /api/parts/recycle/`**  
-  Recycle a part and adjust its stock.  
+### Recycling Parts
+- **`POST /api/parts/recycle/`**
+Recycle a part and adjust its stock.
+
+### Aircraft Production
+- **`GET /api/aircrafts/<int:aircraft_id>/production/`**
+Fetch the parts required for the production of a specific aircraft.
+
+### Reduce Stock
+- **`POST /api/parts/reduce-stock/`**
+Reduce the stock of a part by a specified amount.
+
+### Aircraft Assembly
+- **`POST /api/aircrafts/<int:aircraft_id>/assemble/`**
+Assemble an aircraft by combining all required parts, updating inventory, and recording the assembly.
+
+### Produced Aircrafts
+- **`GET /api/produced-aircrafts/`**
+List all produced aircraft, along with their used parts and quantities.
+
+### Missing Parts
+- **`GET /api/aircrafts/<int:aircraft_id>/missing-parts/`**
+Check for missing parts required for assembling a specific aircraft.
+
+### Team Members
+- **`GET /api/team-members/<int:employee_id>/`**
+Fetch all team members who belong to the same team as the given employee.
